@@ -8,9 +8,7 @@ from subprocess import Popen, PIPE
 from udpServer import serverInitialize
 import threading
 from multiprocessing import Queue
-from time import gmtime, strftime
-
-
+from datetime import datetime
 
 def getValues():
     process = Popen(["/home/osmc/repo/Adafruit_Python_DHT/examples/AdafruitDHT.py", "2302", "4"], stdout=PIPE)
@@ -22,7 +20,7 @@ def runProcess():
     queueLock.acquire()
     result = getValues()
     queueLock.release()
-    time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    time = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     return  time + " | " + result
 
 
