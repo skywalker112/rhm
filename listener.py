@@ -18,8 +18,9 @@ def getValues():
 
 def runProcess():
     queueLock.acquire()
-    getValues()
+    result = getValues()
     queueLock.release()
+    return result
 
 
 queueLock = threading.Lock()
