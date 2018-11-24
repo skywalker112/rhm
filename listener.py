@@ -23,7 +23,7 @@ def runProcess():
     result = getValues()
     queueLock.release()
     time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-    return result + " | " + time
+    return  time + " | " + result
 
 
 queueLock = threading.Lock()
