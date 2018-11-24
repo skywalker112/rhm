@@ -8,7 +8,7 @@ import socket
 
  
 localIP     = "0"
-localPort   = 5000
+localPort   = 50001
 bufferSize  = 1024
 
 
@@ -39,6 +39,7 @@ def serverInitialize():
 
     
         if(message == "MEASURE"):
+            
             proc_result = runProcess()
         
             # Sending a reply to client
