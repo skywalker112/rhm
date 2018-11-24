@@ -8,6 +8,8 @@ from subprocess import Popen, PIPE
 from udpServer import serverInitialize
 import threading
 from multiprocessing import Queue
+from time import gmtime, strftime
+
 
 
 def getValues():
@@ -20,7 +22,8 @@ def runProcess():
     queueLock.acquire()
     result = getValues()
     queueLock.release()
-    return result
+    time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    return result + " | " + time
 
 
 queueLock = threading.Lock()
